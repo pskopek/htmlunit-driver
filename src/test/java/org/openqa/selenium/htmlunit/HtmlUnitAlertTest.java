@@ -33,7 +33,7 @@ public class HtmlUnitAlertTest extends WebDriverTestCase {
     String message = "Are you sure?";
 
     String html = "<html>\n"
-            + "<a id='confirm' href='http://htmlunit.sourceforge.net/' onclick='return confirm(\"" + message + "\");'>Confirm</a>\n"
+            + "<a id='confirm' href='https://htmlunit.sourceforge.io' onclick='return confirm(\"" + message + "\");'>Confirm</a>\n"
             + "<div id='message'>Default</div>"
             + "</html>\n"
             ;
@@ -67,7 +67,7 @@ public class HtmlUnitAlertTest extends WebDriverTestCase {
             + "</script>\n"
             + "</head>\n"
             + "<body>\n"
-            + "<a id='confirm' href='http://htmlunit.sourceforge.net/' onclick='return runConfirm();'>Confirm</a>\n"
+            + "<a id='confirm' href='https://htmlunit.sourceforge.io' onclick='return runConfirm();'>Confirm</a>\n"
             + "<div id='message'>Default</div>"
             + "</body>\n"
             + "</html>\n"
