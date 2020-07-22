@@ -35,7 +35,7 @@ import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitWebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.internal.Locatable;
+import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.testing.JUnit4TestBase;
 import org.openqa.selenium.testing.NotYetImplemented;
 

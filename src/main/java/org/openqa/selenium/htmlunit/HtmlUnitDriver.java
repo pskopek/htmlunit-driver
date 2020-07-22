@@ -75,6 +75,7 @@ import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.HasInputDevices;
 import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.interactions.Mouse;
@@ -1585,6 +1586,13 @@ public class HtmlUnitDriver implements WebDriver, JavascriptExecutor,
       }
     }
 
+    @Override
+    public WebDriver newWindow(WindowType typeHint) {
+      // TODO: fix this
+      WebWindow window = getWebClient().openWindow(null, typeHint.toString());
+      return finishSelecting(window);
+    }
+
     private WebDriver finishSelecting(WebWindow window) {
       getWebClient().setCurrentWindow(window);
       currentWindow = window;
@@ -2001,6 +2009,12 @@ public class HtmlUnitDriver implements WebDriver, JavascriptExecutor,
     @Override
     public void maximize() {
       setSize(initialWindowDimension);
+      setPosition(new Point(0, 0));
+    }
+
+    @Override
+    public void minimize() {
+      setSize(new Dimension(0,0));
       setPosition(new Point(0, 0));
     }
 

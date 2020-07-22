@@ -18,6 +18,7 @@
 package org.openqa.selenium.testing.drivers;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Map;
@@ -89,11 +90,7 @@ public class GridSupplier implements Supplier<WebDriver> {
     wait.until(c -> {
       HttpRequest req = new HttpRequest(HttpMethod.GET, "/status");
       HttpResponse response = null;
-      try {
-        response = c.execute(req);
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
+      response = c.execute(req);
       Map<?, ?> value = json.toType(response.getContentString(), Map.class);
 
       return ((Map<?, ?>) value.get("value")).get("ready") == Boolean.TRUE;
@@ -104,7 +101,7 @@ public class GridSupplier implements Supplier<WebDriver> {
 
   public static void main(String[] args) {
     System.setProperty("selenium.browser.grid", "true");
-    WebDriver driver = new GridSupplier(DesiredCapabilities.firefox()).get();
+    WebDriver driver = new GridSupplier(BrowserToCapabilities.of(Browser.ff)).get();
     driver.get("http://www.google.com");
   }
 }

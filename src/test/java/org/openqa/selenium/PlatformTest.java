@@ -21,6 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -59,6 +60,8 @@ public class PlatformTest {
   }
 
   @Test
+  @Ignore("Androind is not set as unix platform anymore (selenium 4) https://github.com/SeleniumHQ/selenium/commit/0f726f0b45504433fe3731daf2d269601e6d2ff8")
+  // TODO: delete the test
   public void androidIsAUnixVariant() {
     assertTrue(Platform.ANDROID.is(Platform.UNIX));
   }
